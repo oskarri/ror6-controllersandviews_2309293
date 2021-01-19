@@ -13,6 +13,7 @@ class AccessController < ApplicationController
   # process login form
   def create
     # do login process here
+    
     logger.info("*** login process started")
     cookies[:username] = params[:username]
     session[:user_id] = 1483
