@@ -1,8 +1,9 @@
 class AccessController < ApplicationController
 
+  before_action :confirm_logged_in, :except => [:new, :create]
   # display menu
   def menu
-    @username = cookies[:username]
+    set_username
     @user_id = session[:user_id]
   end
 
@@ -13,7 +14,7 @@ class AccessController < ApplicationController
   # process login form
   def create
     # do login process here
-    
+
     logger.info("*** login process started")
     cookies[:username] = params[:username]
     session[:user_id] = 1483
@@ -24,7 +25,11 @@ class AccessController < ApplicationController
   # logout user
   def destroy
     # do logout process here
+    session[:user_id] = nil
     redirect_to(login_path)
   end
+
+  
+
 
 end
