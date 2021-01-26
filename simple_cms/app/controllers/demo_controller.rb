@@ -1,9 +1,16 @@
 class DemoController < ApplicationController
 
-  layout false
-
   def index
     # render('index')
+    # render(plain: "Just render text")
+    # render(html: "<strong>HTML text </strong>")
+    # render(json: Subject.first)
+    # render(xml: ['dog', 'cat', 'mouse'])
+    # render(plain: "OK", status: 200)
+    # render(file: "#{Rails.root}/public/404.html")
+    # send_file("#{Rails.root}/public/404.html")
+    # string = render_to_string(file: "#{Rails.root}/public/404.html")
+    # logger.debug(string)
   end
 
   def about
